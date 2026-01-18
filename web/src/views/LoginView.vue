@@ -27,7 +27,7 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <div class="flex min-h-screen items-center justify-center bg-surface p-4">
+  <div class="flex min-h-screen items-center justify-center bg-background p-4">
     <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl shadow-gray-200/50">
       <div class="mb-8 text-center">
         <img src="/logo.png" alt="Magpie Logo" class="mx-auto mb-6 h-20 w-20 object-contain drop-shadow-md" />
@@ -47,7 +47,7 @@ const handleLogin = async () => {
 
         <div v-if="error" class="text-sm text-red-500">{{ error }}</div>
 
-        <button :disabled="loading" type="submit" class="w-full rounded-lg bg-primary py-3 font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50">
+        <button :disabled="loading" type="submit" class="w-full rounded-lg bg-primary py-3 font-semibold text-gray-900 transition-all hover:bg-primary-hover disabled:opacity-50 shadow-sm">
           {{ loading ? t('common.loading') : t('common.login') }}
         </button>
       </form>

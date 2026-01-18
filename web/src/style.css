@@ -2,9 +2,9 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
-  --color-primary: #40E0D0;
-  --color-primary-hover: #3BCcC0;
-  --color-background: #F9FAFB;
+  --color-primary: #00FFEF;
+  --color-primary-hover: #00E5D7;
+  --color-background: #F3F4F6;
   --color-surface: #FFFFFF;
 }
 

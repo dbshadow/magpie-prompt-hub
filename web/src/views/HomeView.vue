@@ -124,7 +124,7 @@ onMounted(() => {
         </div>
         <button 
           @click="openCreateModal" 
-          class="group flex items-center gap-2.5 rounded-2xl bg-gray-900 px-7 py-4 font-bold text-white shadow-xl shadow-gray-200 transition-all hover:bg-black hover:shadow-2xl hover:-translate-y-1 active:scale-95"
+          class="group flex items-center gap-2.5 rounded-2xl bg-primary px-7 py-4 font-bold text-gray-900 shadow-xl shadow-primary/20 transition-all hover:bg-primary-hover hover:shadow-2xl hover:-translate-y-1 active:scale-95"
         >
           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" /></svg>
           {{ t('home.createPrompt') }}
@@ -155,8 +155,8 @@ onMounted(() => {
             :class="[
               'rounded-xl px-4 py-2 text-sm font-bold transition-all border',
               !selectedTagId 
-                ? 'bg-gray-900 border-gray-900 text-white shadow-lg shadow-gray-200' 
-                : 'bg-white border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-900'
+                ? 'bg-primary border-primary text-gray-900 shadow-lg shadow-primary/20' 
+                : 'bg-white border-gray-200 text-gray-500 hover:border-primary hover:text-primary'
             ]"
           >
             {{ t('home.allTags') }}
@@ -168,8 +168,8 @@ onMounted(() => {
             :class="[
               'rounded-xl px-4 py-2 text-sm font-bold transition-all border',
               selectedTagId === tag.id
-                ? 'bg-gray-900 border-gray-900 text-white shadow-lg shadow-gray-200' 
-                : 'bg-white border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-900'
+                ? 'bg-primary border-primary text-gray-900 shadow-lg shadow-primary/20' 
+                : 'bg-white border-gray-200 text-gray-500 hover:border-primary hover:text-primary'
             ]"
           >
             #{{ tag.name }}

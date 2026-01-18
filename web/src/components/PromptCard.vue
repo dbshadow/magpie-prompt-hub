@@ -72,7 +72,7 @@ onMounted(() => {
 <template>
   <div 
     @click="emit('click', prompt)"
-    class="group cursor-pointer break-inside-avoid rounded-2xl bg-surface p-0 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+    class="group cursor-pointer break-inside-avoid rounded-2xl bg-surface p-0 shadow-sm border border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/50"
   >
     <!-- Card Header / Thumbnail -->
     <div class="relative aspect-[16/9] w-full overflow-hidden rounded-t-2xl bg-gray-100">
@@ -111,7 +111,7 @@ onMounted(() => {
       
       <!-- Tags -->
       <div v-if="prompt.expand?.tags && prompt.expand.tags.length" class="mb-4 flex flex-wrap gap-1.5">
-        <span v-for="tag in prompt.expand.tags.slice(0, 3)" :key="tag.id" class="rounded-md bg-gray-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+        <span v-for="tag in prompt.expand.tags.slice(0, 3)" :key="tag.id" class="rounded-md bg-primary/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-teal-700">
           {{ tag.name }}
         </span>
       </div>

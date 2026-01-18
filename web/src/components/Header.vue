@@ -37,12 +37,12 @@ const toggleLanguage = () => {
       <!-- Nav -->
       <nav class="flex items-center gap-6">
         <!-- Language Switcher -->
-        <button @click="toggleLanguage" class="text-xs font-bold text-gray-500 hover:text-gray-900 transition-colors uppercase tracking-wider">
+        <button @click="toggleLanguage" class="text-xs font-bold text-gray-500 hover:text-primary transition-colors uppercase tracking-wider">
           {{ locale === 'zh-TW' ? 'EN' : '繁中' }}
         </button>
 
         <template v-if="user">
-          <router-link v-if="user.role === 'admin'" to="/admin" class="text-sm font-semibold text-gray-500 hover:text-gray-900 transition-colors">{{ t('common.admin') }}</router-link>
+          <router-link v-if="user.role === 'admin'" to="/admin" class="text-sm font-semibold text-gray-500 hover:text-primary transition-colors">{{ t('common.admin') }}</router-link>
           
           <div class="h-4 w-px bg-gray-200"></div>
 
@@ -72,8 +72,8 @@ const toggleLanguage = () => {
         </template>
         
         <template v-else>
-          <router-link to="/login" class="text-sm font-bold text-gray-500 hover:text-gray-900">{{ t('common.login') }}</router-link>
-          <router-link to="/register" class="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-gray-800 hover:shadow-lg">
+          <router-link to="/login" class="text-sm font-bold text-gray-500 hover:text-primary transition-colors">{{ t('common.login') }}</router-link>
+          <router-link to="/register" class="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-gray-900 shadow-sm transition-all hover:bg-primary-hover hover:shadow-lg hover:-translate-y-0.5">
             {{ t('common.getStarted') }}
           </router-link>
         </template>
