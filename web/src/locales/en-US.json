@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "admin": "Admin",
+    "signUp": "Sign Up",
+    "getStarted": "Get Started",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "copy": "Copy",
+    "loading": "Loading...",
+    "anonymous": "Anonymous"
+  },
+  "home": {
+    "title": "Collect the spark, build your nest.",
+    "subtitle": "Discover and capture high-quality AI instructions. Feel free to swoop in, remix the best prompts, and share the shine with your team.",
+    "createPrompt": "Create Prompt",
+    "noPrompts": "No prompts found",
+    "beTheFirst": "Be the first to share a prompt with your team!",
+    "createOne": "Create one now",
+    "allTags": "All",
+    "searchPlaceholder": "Search prompts or authors..."
+  },
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "signInToAccount": "Sign in to your Magpie account",
+    "dontHaveAccount": "Don't have an account?",
+    "joinMagpie": "Join Magpie",
+    "createAccount": "Create an account to share prompts",
+    "alreadyHaveAccount": "Already have an account?",
+    "waitingApproval": "Waiting for Approval",
+    "approvalMessage": "Your account has been created successfully! An administrator needs to approve your access before you can start sharing prompts.",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username"
+  },
+  "prompt": {
+    "title": "Title",
+    "description": "Description",
+    "content": "Prompt Content",
+    "tags": "Tags",
+    "share": "Share Prompt",
+    "update": "Update Prompt",
+    "remix": "Remix Prompt",
+    "resultPreview": "Result Preview",
+    "text": "Text",
+    "image": "Image",
+    "uploadFile": "Upload a file",
+    "fillVariables": "Fill Variables",
+    "rawPrompt": "Raw Prompt",
+    "compiledPrompt": "Compiled Prompt",
+    "exampleOutput": "Example Output",
+    "copySuccess": "Prompt copied to clipboard!",
+    "deleteConfirm": "Are you sure you want to delete this prompt?",
+    "placeholders": {
+      "title": "Give your prompt a catchy title",
+      "desc": "How should this prompt be used?",
+      "content": "Use {'{{'}variable{'}}'} for dynamic parts",
+      "resultText": "Example output text..."
+    }
+  }
+}

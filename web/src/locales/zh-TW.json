@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "登入",
+    "logout": "登出",
+    "admin": "管理後台",
+    "signUp": "註冊",
+    "getStarted": "立即開始",
+    "cancel": "取消",
+    "save": "儲存",
+    "delete": "刪除",
+    "edit": "編輯",
+    "copy": "複製",
+    "loading": "載入中...",
+    "anonymous": "匿名"
+  },
+  "home": {
+    "title": "採集靈光，築夢成巢",
+    "subtitle": "在這裡探索並捕捉高品質的 AI 指令。隨心所欲地叼回、重組，並將這份光芒分享給整個團隊。",
+    "createPrompt": "建立 Prompt",
+    "noPrompts": "尚未有任何 Prompt",
+    "beTheFirst": "成為第一個分享 Prompt 的人！",
+    "createOne": "立即建立",
+    "allTags": "全部",
+    "searchPlaceholder": "搜尋 Prompt 標題或作者..."
+  },
+  "auth": {
+    "welcomeBack": "歡迎回來",
+    "signInToAccount": "登入您的 Magpie 帳號",
+    "dontHaveAccount": "還沒有帳號嗎？",
+    "joinMagpie": "加入 Magpie",
+    "createAccount": "建立帳號並開始分享",
+    "alreadyHaveAccount": "已經有帳號了嗎？",
+    "waitingApproval": "等待審核中",
+    "approvalMessage": "您的帳號已成功建立！管理員審核通過後，您即可開始使用。",
+    "email": "電子郵件",
+    "password": "密碼",
+    "username": "使用者名稱"
+  },
+  "prompt": {
+    "title": "標題",
+    "description": "描述",
+    "content": "Prompt 內容",
+    "tags": "標籤",
+    "share": "發布 Prompt",
+    "update": "更新 Prompt",
+    "remix": "混搭 (Remix)",
+    "resultPreview": "成果預覽",
+    "text": "文字",
+    "image": "圖片",
+    "uploadFile": "上傳檔案",
+    "fillVariables": "填寫變數",
+    "rawPrompt": "原始 Prompt",
+    "compiledPrompt": "完整 Prompt",
+    "exampleOutput": "輸出範例",
+    "copySuccess": "Prompt 已複製到剪貼簿！",
+    "deleteConfirm": "您確定要刪除這個 Prompt 嗎？",
+    "placeholders": {
+      "title": "給您的 Prompt 一個吸睛的標題",
+      "desc": "這個 Prompt 該如何使用？",
+      "content": "使用 {'{{'}variable{'}}'} 來設定動態參數",
+      "resultText": "範例輸出文字..."
+    }
+  }
+}
