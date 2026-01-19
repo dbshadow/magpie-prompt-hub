@@ -23,6 +23,14 @@
     "allTags": "全部",
     "searchPlaceholder": "搜尋 Prompt 標題或作者..."
   },
+  "sort": {
+    "label": "排序方式",
+    "newest": "最新上架",
+    "oldest": "最舊上架",
+    "title": "標題 (A-Z)",
+    "author": "作者 (A-Z)",
+    "popular": "熱門程度"
+  },
   "auth": {
     "welcomeBack": "歡迎回來",
     "signInToAccount": "登入您的 Magpie 帳號",

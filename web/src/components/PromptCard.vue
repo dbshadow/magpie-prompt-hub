@@ -27,15 +27,8 @@ const checkIfLiked = async () => {
   }
 }
 
-const fetchLikeCount = async () => {
-  try {
-    const result = await pb.collection('likes').getList(1, 1, {
-      filter: `prompt="${props.prompt.id}"`
-    })
-    likeCount.value = result.totalItems
-  } catch (e) {
-    likeCount.value = 0
-  }
+const fetchLikeCount = () => {
+  likeCount.value = props.prompt.likes_count || 0
 }
 
 const toggleLike = async (e: Event) => {
@@ -59,7 +52,7 @@ const toggleLike = async (e: Event) => {
       likeRecordId.value = record.id
     }
   } catch (e) {
-    console.error(e)
+    console.error('Failed to update likes:', e)
   }
 }
 

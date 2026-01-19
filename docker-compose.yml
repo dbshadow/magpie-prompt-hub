@@ -19,6 +19,7 @@ services:
     volumes:
       - ./pb_data:/pb_data
       - ./pb_public:/pb_public
+      - ./pb_hooks:/pb_hooks
     restart: always
     command:
       - --http=0.0.0.0:8090

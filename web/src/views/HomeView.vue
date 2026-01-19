@@ -19,6 +19,7 @@ const isEditMode = ref(false)
 const remixData = ref<any>(null)
 const selectedTagId = ref<string | null>(null)
 const searchQuery = ref('')
+const sortBy = ref('-created')
 const page = ref(1)
 const hasMore = ref(true)
 let searchTimeout: ReturnType<typeof setTimeout>
@@ -46,7 +47,7 @@ const loadPrompts = async (reset = false) => {
     }
 
     const result = await pb.collection('prompts').getList(page.value, 50, {
-      sort: '-created',
+      sort: sortBy.value,
       expand: 'user,tags,parent_id.user',
       filter: filters.join(' && ')
     })
@@ -69,6 +70,10 @@ const loadPrompts = async (reset = false) => {
 // Watchers for filters
 
 watch(selectedTagId, () => {
+  loadPrompts(true)
+})
+
+watch(sortBy, () => {
   loadPrompts(true)
 })
 
@@ -172,19 +177,36 @@ onMounted(() => {
 
       <!-- Search & Filter -->
       <div class="mb-10 space-y-6">
-        <!-- Search Input -->
-        <div class="relative max-w-lg">
-          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-            </svg>
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <!-- Search Input -->
+          <div class="relative flex-1 max-w-lg">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <input 
+              v-model="searchQuery"
+              type="text" 
+              class="block w-full rounded-2xl border-0 bg-white py-3.5 pl-11 pr-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all" 
+              :placeholder="t('home.searchPlaceholder')" 
+            />
           </div>
-          <input 
-            v-model="searchQuery"
-            type="text" 
-            class="block w-full rounded-2xl border-0 bg-white py-3.5 pl-11 pr-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 transition-all" 
-            :placeholder="t('home.searchPlaceholder')" 
-          />
+
+          <!-- Sort Select -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400 whitespace-nowrap">{{ t('sort.label') }}:</span>
+            <select 
+              v-model="sortBy"
+              class="rounded-xl border-gray-200 bg-white px-4 py-2 text-sm font-bold text-gray-700 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+            >
+              <option value="-created">{{ t('sort.newest') }}</option>
+              <option value="created">{{ t('sort.oldest') }}</option>
+              <option value="title">{{ t('sort.title') }}</option>
+              <option value="user.name,user.username,user.email">{{ t('sort.author') }}</option>
+              <option value="-likes_count">{{ t('sort.popular') }}</option>
+            </select>
+          </div>
         </div>
 
         <!-- Tag Filter -->
