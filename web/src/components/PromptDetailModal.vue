@@ -41,10 +41,15 @@ const filledContent = computed(() => {
   return content
 })
 
+const copyButtonText = ref(t('common.copy'))
+
 const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(filledContent.value)
-    alert(t('prompt.copySuccess'))
+    copyButtonText.value = t('prompt.copySuccess')
+    setTimeout(() => {
+      copyButtonText.value = t('common.copy')
+    }, 2000)
   } catch (err) {
     console.error('Failed to copy: ', err)
   }
@@ -155,9 +160,10 @@ const handleDelete = async () => {
            <div class="mb-10">
               <div class="flex items-center justify-between mb-4">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">{{ t('prompt.compiledPrompt') }}</h4>
-                <button @click="copyToClipboard" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1">
-                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                  {{ t('common.copy') }}
+                <button @click="copyToClipboard" class="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1 transition-all">
+                  <svg v-if="copyButtonText === t('common.copy')" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                  <svg v-else width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  {{ copyButtonText }}
                 </button>
               </div>
               <div class="rounded-2xl bg-gray-800 p-6 font-mono text-sm leading-relaxed text-gray-200 shadow-inner whitespace-pre-wrap">
