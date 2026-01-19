@@ -34,7 +34,3 @@ pnpm-debug.log*
 *.swp
 *.swo
 
-# OpenSpec (Development Specs)
-openspec/
-AGENTS.md
-
