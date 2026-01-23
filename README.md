@@ -13,7 +13,7 @@ Magpie 是一個企業內部的 Prompt (AI 指令) 分享與管理平台。它�
 *   **Prompt 探索**：無限捲動 (Infinite Scroll) 的瀑布流瀏覽體驗，支援標題與作者搜尋。
 *   **收藏與管理**：使用者可以收藏 (Like) 喜歡的 Prompt，並在個人檔案頁面快速查看。
 *   **分類過濾**：透過後端管理的標籤 (Tags) 快速篩選特定類型的指令。
-*   **智慧填空 (Smart Filler)**：自動偵測 Prompt 中的 `[variable]` 變數，並產生填空表單，即時預覽完整指令。
+*   **智慧填空 (Smart Filler)**：自動偵測 Prompt 中的 `{{variable}}` 變數，並產生填空表單，即時預覽完整指令。
 *   **成果展示**：支援上傳圖片或文字作為 Prompt 的執行成果範例。
 *   **混搭與繼承 (Remix)**：基於他人的 Prompt 進行修改與再創作，系統會自動記錄繼承來源。
 *   **多國語言**：支援繁體中文與英文介面切換。
@@ -78,7 +78,7 @@ docker-compose up -d pocketbase
 > ```sql
 > CREATE INDEX idx_likes_user ON likes (user)
 > ```
-> 使用 Docker 啟動時，系統會自動載入 `pb_migrations` 目錄下的腳本來建立此索引。
+
 
 ### 3. 啟動前端 (Web)
 ```bash

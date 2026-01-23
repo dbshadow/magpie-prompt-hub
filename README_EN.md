@@ -13,7 +13,7 @@ Magpie is an internal Prompt Database and sharing platform for organizations. It
 *   **Prompt Discovery**: Explore prompts with an Infinite Scroll masonry layout, supporting title and author search.
 *   **Favorites**: Like prompts to save them for quick access in your profile.
 *   **Tag Filtering**: Quickly filter specific types of prompts via backend-managed tags.
-*   **Smart Filler**: Automatically detects `[variable]` syntax in prompts and generates a fillable form with real-time preview.
+*   **Smart Filler**: Automatically detects `{{variable}}` syntax in prompts and generates a fillable form with real-time preview.
 *   **Showcase Results**: Support for uploading images or text as example results of the prompt.
 *   **Remix & Inherit**: Modify and re-create based on others' prompts; the system automatically tracks the inheritance source.
 *   **Localization**: Supports Traditional Chinese and English interface switching.
@@ -78,7 +78,6 @@ Go to [http://localhost:8090/_/](http://localhost:8090/_/), create an admin acco
 > ```sql
 > CREATE INDEX idx_likes_user ON likes (user)
 > ```
-> When starting with Docker, the system automatically runs scripts in `pb_migrations` to create this index.
 
 ### 3. Start Frontend (Web)
 ```bash
