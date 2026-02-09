@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { pb } from '../lib/pocketbase'
-import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits(['open-prompt'])
-const { t } = useI18n()
 const notifications = ref<any[]>([])
 const isOpen = ref(false)
 const unreadCount = ref(0)
