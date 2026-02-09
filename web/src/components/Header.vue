@@ -5,6 +5,7 @@ import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Sun, Moon } from 'lucide-vue-next'
 import { useTheme } from '../composables/useTheme'
+import NotificationMenu from './NotificationMenu.vue'
 
 const router = useRouter()
 const { t, locale } = useI18n()
@@ -25,6 +26,11 @@ const handleLogout = () => {
 
 const toggleLanguage = () => {
   locale.value = locale.value === 'zh-TW' ? 'en-US' : 'zh-TW'
+}
+
+const openPrompt = (prompt: any) => {
+  if (!prompt) return
+  router.push({ path: '/', query: { promptId: prompt.id } })
 }
 </script>
 
@@ -51,6 +57,8 @@ const toggleLanguage = () => {
         </button>
 
         <template v-if="user">
+          <NotificationMenu @open-prompt="openPrompt" />
+
           <router-link v-if="user.role === 'admin'" to="/admin" class="text-sm font-semibold text-gray-500 hover:text-primary transition-colors">{{ t('common.admin') }}</router-link>
           
           <div class="h-4 w-px bg-gray-200 dark:bg-gray-700"></div>

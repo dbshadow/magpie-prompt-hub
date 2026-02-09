@@ -11,6 +11,7 @@
     "delete": "Delete",
     "edit": "Edit",
     "copy": "Copy",
+    "post": "Post",
     "loading": "Loading...",
     "checkStatus": "Check Status",
     "checking": "Checking...",
@@ -83,6 +84,9 @@
     "exampleOutput": "Example Output",
     "copySuccess": "Prompt copied to clipboard!",
     "deleteConfirm": "Are you sure you want to delete this prompt?",
+    "comments": "Comments",
+    "addCommentPlaceholder": "Leave a comment or suggestion...",
+    "noComments": "No comments yet.",
     "placeholders": {
       "title": "Give your prompt a catchy title",
       "desc": "How should this prompt be used?",

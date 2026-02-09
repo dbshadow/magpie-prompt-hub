@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { pb } from '../lib/pocketbase'
 import { useI18n } from 'vue-i18n'
 import { useInfiniteScroll } from '@vueuse/core'
@@ -12,6 +13,8 @@ import { useTagStore } from '../stores/tagStore'
 
 const { t } = useI18n()
 const tagStore = useTagStore()
+const route = useRoute()
+const router = useRouter()
 
 // State
 const selectedPrompt = ref<any>(null)
@@ -23,6 +26,33 @@ const selectedTags = ref<Set<string>>(new Set())
 const searchQuery = ref('')
 const sortBy = ref('-updated')
 let searchTimeout: ReturnType<typeof setTimeout>
+
+// Check for promptId in query
+const checkQueryParam = async () => {
+  const promptId = route.query.promptId as string
+  if (promptId) {
+    try {
+      const record = await pb.collection('prompts').getOne(promptId, {
+        expand: 'user,tags,parent_id.user'
+      })
+      selectedPrompt.value = record
+      isModalOpen.value = true
+    } catch (e) {
+      console.error('Failed to load prompt from query', e)
+    }
+  }
+}
+
+watch(() => route.query.promptId, () => {
+  checkQueryParam()
+})
+
+// Clear query param when modal is closed
+watch(isModalOpen, (isOpen) => {
+  if (!isOpen && route.query.promptId) {
+    router.replace({ path: '/', query: { ...route.query, promptId: undefined } })
+  }
+})
 
 // Infinite Scroll Setup
 const { 
@@ -134,6 +164,7 @@ const handleOpenParent = async (parentId: string) => {
 onMounted(() => {
   tagStore.fetchTags()
   loadNext() // Initial load
+  checkQueryParam()
 })
 </script>
 

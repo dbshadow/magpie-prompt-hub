@@ -148,23 +148,34 @@ onMounted(() => {
           <span class="text-xs font-medium text-muted">{{ prompt.expand?.user?.username || prompt.expand?.user?.email?.split('@')[0] || t('common.anonymous') }}</span>
         </div>
         
-        <button 
-          @click="toggleLike"
-          class="group/like flex items-center gap-1.5 rounded-full px-2 py-1 transition-colors hover:bg-red-50 dark:hover:bg-red-900/20"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" height="16" 
-            viewBox="0 0 24 24" 
-            :fill="isLiked ? '#ef4444' : 'none'" 
-            :stroke="isLiked ? '#ef4444' : 'currentColor'"
-            class="text-gray-400 dark:text-gray-500 transition-colors group-hover/like:text-red-500"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        <div class="flex items-center gap-3">
+          <!-- Comments Count -->
+          <div class="flex items-center gap-1 text-gray-400 dark:text-gray-500">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+            <span class="text-xs font-semibold">{{ prompt.comments_count || 0 }}</span>
+          </div>
+
+          <!-- Like Button -->
+          <button 
+            @click="toggleLike"
+            class="group/like flex items-center gap-1.5 rounded-full px-2 py-1 transition-colors hover:bg-red-50 dark:hover:bg-red-900/20"
           >
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
-          <span class="text-xs font-semibold" :class="isLiked ? 'text-red-500' : 'text-gray-400 dark:text-gray-500 group-hover/like:text-red-500'">{{ likeCount }}</span>
-        </button>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" height="16" 
+              viewBox="0 0 24 24" 
+              :fill="isLiked ? '#ef4444' : 'none'" 
+              :stroke="isLiked ? '#ef4444' : 'currentColor'"
+              class="text-gray-400 dark:text-gray-500 transition-colors group-hover/like:text-red-500"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            >
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+            <span class="text-xs font-semibold" :class="isLiked ? 'text-red-500' : 'text-gray-400 dark:text-gray-500 group-hover/like:text-red-500'">{{ likeCount }}</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

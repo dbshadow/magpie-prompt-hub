@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { pb } from '../lib/pocketbase'
 import { useI18n } from 'vue-i18n'
+import CommentList from './CommentList.vue'
 
 const props = defineProps<{
   prompt: any
@@ -150,6 +151,9 @@ const handleDelete = async () => {
               #{{ tag.name }}
             </span>
           </div>
+
+          <!-- Comment List -->
+          <CommentList :prompt="prompt" />
         </div>
 
         <!-- Footer Actions -->

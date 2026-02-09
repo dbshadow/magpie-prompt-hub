@@ -11,6 +11,7 @@
     "delete": "刪除",
     "edit": "編輯",
     "copy": "複製",
+    "post": "發佈",
     "loading": "載入中...",
     "checkStatus": "檢查狀態",
     "checking": "檢查中...",
@@ -83,6 +84,9 @@
     "exampleOutput": "成果範例",
     "copySuccess": "已複製到剪貼簿！",
     "deleteConfirm": "確定要刪除這個 Prompt 嗎？",
+    "comments": "留言",
+    "addCommentPlaceholder": "留下您的想法 or 建議...",
+    "noComments": "目前尚無留言。",
     "placeholders": {
       "title": "給這個 Prompt 一個響亮的標題",
       "desc": "該如何使用這個 Prompt？",
